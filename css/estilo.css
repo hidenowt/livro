@@ -58,3 +58,19 @@ body {
     text-decoration: none;
     color: orange;
 }
+
+#produtos-detalhe {
+    width: 545px;
+    background-color: #EEE;
+    display: table;
+    padding: 20px;
+    padding-top: 5px;
+}
+
+#produtos-detalhe h3, #produtos-detalhe h4 {
+    background-color: #DDD;
+    width: 95%;
+    padding: 15px;
+    border: #BBB dotted 1px;
+    text-transform: uppercase;
+}

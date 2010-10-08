@@ -1,4 +1,26 @@
-RewriteEngine on
+#Para não permitir o acesso ao ficheiro .htaccess vamos colocá-lo com permissões:644. E, adicionar o seguinte:
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+ 
+#Nao permitir o Directory Listing:
+Options -Indexes
+
+#Alterando alguns valores do php o p php_value e o php_flag
+php_value    error_reporting    6135
+php_flag     display_errors     on
+ 
+#Remove o índex.php do URL - url friendly:
+<IfModule mod_rewrite.c>
+RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php/$1 [L]
+ 
+RewriteRule ^(.*)$ index.php?$1 [L]
+ 
+#Nao permitir hotlinking:
+#RewriteCond %{HTTP_REFERER} !^$
+#RewriteCond %{HTTP_REFERER} !^http://(www\.)?mysite.com/.*$ [NC]
+#RewriteRule \.(gif|jpg|js|css|png|jpeg|swf)$ - [F,NC,L]
+</IfModule>
